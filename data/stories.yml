@@ -2,11 +2,19 @@ version: "2.0"
 
 stories:
 
-- story: User wants to order a web site
+- story: User wants to have infos about websites
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: user_wants_to_order_web_site
+  - intent: user_wants_infos_about_developpers
+  - action: utter_list_developpers
+  - action: utter_goodbye
+
+- story: User wants to have infos about websites
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_wants_infos_about_web_site
   - action: utter_menu_web_site
   - action: utter_goodbye
 

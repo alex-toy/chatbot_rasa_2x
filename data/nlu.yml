@@ -1,6 +1,31 @@
 version: "2.0"
 
 nlu:
+
+- intent: user_wants_infos_about_developpers
+  examples: |
+    - I would like to know about your developpers
+    - Please tell me about developpers
+    - I want to know about your developpers
+    - I want to know the kind of developpers working in your firm
+    - I want to know what you have in terms of developpers
+    - I would like to know what you have in terms of developpers
+    - I would like to know the kind of developpers you have
+    - Please display my the developpers working in your firm
+    - Can I know about your developpers please
+
+- intent: user_wants_infos_about_web_site
+  examples: |
+    - I would like to know about web sites
+    - Please tell me about web sites
+    - I want to know about web sites
+    - I want to know the kind of web sites you can make for me
+    - I want to know what you can do about web sites
+    - I would like to know what you can do about web sites
+    - I would like to know the kind of web sites you can make for me
+    - Please display my the kind of web sites you're able to make
+    - Can I know about web sites please
+
 - intent: greet
   examples: |
     - hey
