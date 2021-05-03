@@ -2,53 +2,55 @@ import sqlite3
 
 
 if __name__ == "__main__":
-    print('ok')
+
     conn = sqlite3.connect('developpers.db')
     c = conn.cursor()
 
     create_developpers_query = """
-        CREATE TABLE developpers (
+        CREATE TABLE IF NOT EXISTS developpers (
             first_name text,
             last_name text,
             techno text,
             experience integer
         )
     """
-    
+    developpers = [
+        ('alessio', 'rea', 'node.js', 0),
+        ('mathieux', 'bordet', 'react', 10),
+        ('julien', 'ducros', 'java', 5)
+    ]
     insert_developpers_qry = """
-        INSERT INTO developpers 
-        VALUES ('alessio', 'rea', 'node.js', 0),
-        VALUES ('mathieux', 'bordet', 'react', 10),
-        VALUES ('julien', 'ducros', 'java', 5)
+        INSERT INTO developpers VALUES (?, ?, ?, ?)
     """
 
-    c.execute(insert_developpers_qry)
-    c.execute(create_table_query)
+    c.execute(create_developpers_query)
+    c.executemany(insert_developpers_qry, developpers)
     conn.commit()
 
     create_technos_query = """
-        CREATE TABLE technos (
+        CREATE TABLE IF NOT EXISTS technos (
             name text,
             type text
         )
     """
 
     insert_technos_qry = """
-        INSERT INTO technos 
-        VALUES ('node.js', 'web'),
-        VALUES ('react native', 'mobile'),
-        VALUES ('jave', 'web'),
-        VALUES ('swift', 'mobile')
+        INSERT INTO technos VALUES 
+        ('node.js', 'web'),
+        ('react native', 'mobile'),
+        ('jave', 'web'),
+        ('swift', 'mobile')
     """
 
     c.execute(create_technos_query)
     c.execute(insert_technos_qry)
     conn.commit()
 
- 
-    conn.close()
+    developpers = c.execute("SELECT * FROM developpers WHERE first_name = 'alessio'" )
+    print(developpers)
 
-    #c.execute("SELECT * FROM addresses WHERE oid = " + record_id)
+
+    conn.close()
 
 
     # c.execute("""UPDATE addresses SET
