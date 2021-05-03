@@ -222,3 +222,16 @@ def query():
 
 if __name__ == "__main__":
     print('ok')
+    conn = sqlite3.connect('developpers.db')
+    c = conn.cursor()
+
+    create_table_query = """CREATE TABLE addresses (
+		first_name text,
+		last_name text,
+		address text,
+		city text,
+		state text,
+		zipcode integer
+		)"""
+
+    c.execute(create_table_query)
