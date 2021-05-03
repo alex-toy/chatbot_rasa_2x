@@ -8,7 +8,7 @@ stories:
   - action: utter_greet
   - intent: user_wants_infos_about_developpers
   - action: utter_list_developpers
-  - action: action_test
+  - action: action_show_developpers
   - action: utter_goodbye
 
 - story: User wants to have infos about websites

@@ -17,12 +17,22 @@ class ActionShowDeveloppers(Action):
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
         
-        conn = sqlite3.connect('developpers.db')
+        #conn = sqlite3.connect('developpers.db')
+        #conn = sqlite3.connect('University.db')
+        #query = "select * from developpers;"
+        #df = pd.read_sql(query, conn)
+        #print(df)
+        #devs = df['first_name']
 
-        dispatcher.utter_message(text='action_show_developpers')
+        #content = ''
+        # for i in range(attendance_df.shape[0]):
+        #     content = content + str(devs.values[i]) + '  -  ' 
+
+        str((tracker.latest_message)['text'])
+        dispatcher.utter_message(template="utter_list_developpers")
+        dispatcher.utter_message(template="utter_ask_usn")
 
         return []
-
 
 class ValidateCredentialsAndDisplayMarks(Action):
 
