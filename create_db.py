@@ -28,6 +28,8 @@ def create_tables() :
     conn.commit()
     conn.close()
 
+    print('end create_tables')
+
 
     # c.execute("""UPDATE addresses SET
 	# 	first_name = :first,
@@ -49,6 +51,20 @@ def create_tables() :
 	# 	})
 
     #c.execute("DELETE from addresses WHERE oid = " + delete_box.get())
+
+def delete_all() :
+    
+    conn = sqlite3.connect('developpers.db')
+    c = conn.cursor()
+
+    c.execute("DELETE from developpers;")
+    c.execute("DELETE from technos;")
+
+    conn.commit()
+    conn.close()
+
+    print('end delete_all')
+
 
 
 
@@ -73,21 +89,28 @@ def populate_tables() :
             type text
         )
     """
-    insert_technos_qry = """
-        INSERT INTO technos VALUES 
+    technos = [
         ('node.js', 'web'),
         ('react native', 'mobile'),
-        ('jave', 'web'),
+        ('java', 'web'),
         ('swift', 'mobile')
+    ]
+    insert_technos_qry = """
+        INSERT INTO technos VALUES (?, ?)
     """    
-    c.execute(insert_technos_qry)
+    c.executemany(insert_technos_qry, technos)
 
     conn.commit()
     conn.close()
 
+    print('end populate_tables')
+
 
 
 def show_tables():
+    
+    conn = sqlite3.connect('developpers.db')
+    c = conn.cursor()
 
     c.execute("SELECT * FROM developpers WHERE first_name = 'alessio';" )
     results = c.fetchall()
@@ -109,11 +132,13 @@ def show_tables():
 
 if __name__ == "__main__":
 
+    delete_all()
+
     create_tables() 
 
-    #populate_tables()
+    populate_tables()
 
-    #show_tables()
+    show_tables()
 
 
 
