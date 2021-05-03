@@ -1,40 +1,21 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
-
-
-# This is a simple example for a custom action which utters "Hello World!"
 from datetime import date
 from typing import Any, Text, Dict, List
 import sqlite3
 import pandas as pd
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
+
 
 class ValidateCredentialsAndDisplayMarks(Action):
 
     def name(self) -> Text:
         return "validate_credentials_and_display_marks"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
 
         messages = []
         #print("tracker : ", tracker)
@@ -74,18 +55,24 @@ class ValidateCredentialsAndDisplayMarks(Action):
         return []
 
 
+
+
 class ActionAskUsn(Action):
 
     def name(self) -> Text:
         return "action_ask_usn"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
         str((tracker.latest_message)['text'])
         dispatcher.utter_message(template="utter_ask_usn")
 
         return []
+
+
 
 
 class ActionAskPassword(Action):
@@ -93,22 +80,28 @@ class ActionAskPassword(Action):
     def name(self) -> Text:
         return "action_ask_password"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
         str((tracker.latest_message)['text'])
         dispatcher.utter_message(template="utter_ask_password")
 
         return []
+
+
 
 class ValidateCredentialsAndDisplayAttendance(Action):
 
     def name(self) -> Text:
         return "validate_credentials_and_display_attendance"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
 
         messages = []
         #print("tracker : ", tracker)
@@ -149,27 +142,36 @@ class ValidateCredentialsAndDisplayAttendance(Action):
         return []
 
 
+
+
 class ActionAdmissionInfo(Action):
 
     def name(self) -> Text:
         return "action_admission_info"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
         str((tracker.latest_message)['text'])
         dispatcher.utter_message(template="utter_admission_info")
 
         return []
+
+
+
 
 class DisplayUpcomingHolidays(Action):
 
     def name(self) -> Text:
         return "display_upcoming_holidays"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
 
         today = date.today()
         print("Today's date:", today)
