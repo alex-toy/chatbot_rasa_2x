@@ -233,7 +233,15 @@ if __name__ == "__main__":
             experience integer
         )
     """
+    
+    insert_developpers_qry = """
+        INSERT INTO developpers 
+        VALUES ('alessio', 'rea', 'node.js', 0),
+        VALUES ('mathieux', 'bordet', 'react', 10),
+        VALUES ('julien', 'ducros', 'java', 5)
+    """
 
+    c.execute(insert_developpers_qry)
     c.execute(create_table_query)
     conn.commit()
 
@@ -244,8 +252,19 @@ if __name__ == "__main__":
         )
     """
 
+    insert_technos_qry = """
+        INSERT INTO technos 
+        VALUES ('node.js', 'web'),
+        VALUES ('react native', 'mobile'),
+        VALUES ('jave', 'web'),
+        VALUES ('swift', 'mobile')
+    """
+
     c.execute(create_technos_query)
+    c.execute(insert_technos_qry)
     conn.commit()
+
+ 
 
     conn.close()
 
