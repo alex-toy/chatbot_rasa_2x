@@ -1,8 +1,8 @@
 import sqlite3
 
 
-if __name__ == "__main__":
 
+def create_tables() :
     conn = sqlite3.connect('developpers.db')
     c = conn.cursor()
 
@@ -14,18 +14,6 @@ if __name__ == "__main__":
             experience integer
         )
     """
-    developpers = [
-        ('alessio', 'rea', 'node.js', 0),
-        ('mathieux', 'bordet', 'react', 10),
-        ('julien', 'ducros', 'java', 5)
-    ]
-    insert_developpers_qry = """
-        INSERT INTO developpers VALUES (?, ?, ?, ?)
-    """
-
-    c.execute(create_developpers_query)
-    c.executemany(insert_developpers_qry, developpers)
-    conn.commit()
 
     create_technos_query = """
         CREATE TABLE IF NOT EXISTS technos (
@@ -34,22 +22,10 @@ if __name__ == "__main__":
         )
     """
 
-    insert_technos_qry = """
-        INSERT INTO technos VALUES 
-        ('node.js', 'web'),
-        ('react native', 'mobile'),
-        ('jave', 'web'),
-        ('swift', 'mobile')
-    """
-
+    c.execute(create_developpers_query)
     c.execute(create_technos_query)
-    c.execute(insert_technos_qry)
+
     conn.commit()
-
-    developpers = c.execute("SELECT * FROM developpers WHERE first_name = 'alessio'" )
-    print(developpers)
-
-
     conn.close()
 
 
@@ -73,5 +49,87 @@ if __name__ == "__main__":
 	# 	})
 
     #c.execute("DELETE from addresses WHERE oid = " + delete_box.get())
+
+
+
+
+def populate_tables() :
+    conn = sqlite3.connect('developpers.db')
+    c = conn.cursor()
+    
+    developpers = [
+        ('alessio', 'rea', 'node.js', 0),
+        ('mathieux', 'bordet', 'react', 10),
+        ('julien', 'ducros', 'java', 5)
+    ]
+    insert_developpers_qry = """
+        INSERT INTO developpers VALUES (?, ?, ?, ?)
+    """
+    c.executemany(insert_developpers_qry, developpers)
+
+    create_technos_query = """
+        CREATE TABLE IF NOT EXISTS technos (
+            name text,
+            type text
+        )
+    """
+    insert_technos_qry = """
+        INSERT INTO technos VALUES 
+        ('node.js', 'web'),
+        ('react native', 'mobile'),
+        ('jave', 'web'),
+        ('swift', 'mobile')
+    """    
+    c.execute(insert_technos_qry)
+
+    conn.commit()
+    conn.close()
+
+
+
+def show_tables():
+
+    c.execute("SELECT * FROM developpers WHERE first_name = 'alessio';" )
+    results = c.fetchall()
+    print(results)
+
+
+    c.execute("SELECT * FROM technos;" )
+    results = c.fetchall()
+    print(results)
+
+    conn.commit()
+    conn.close()
+
+
+
+
+
+
+
+if __name__ == "__main__":
+
+    create_tables() 
+
+    #populate_tables()
+
+    #show_tables()
+
+
+
+
+
+    
+    
+
+
+
+    
+
+
+    
+
+
+
 
     
