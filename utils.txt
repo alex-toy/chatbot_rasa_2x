@@ -12,14 +12,6 @@ pip install rasa-x -i https://pypi.rasa.com/simple
 
 
 
-python -m spacy download en_core_web_md
-python -m spacy link en_core_web_md en_core_web_md
-python -m rasa train nlu --nlu nlu.md
-python -m rasa shell nlu
-python -m spacy init vectors en word2vec/word2vec_shopping.txt.gz init_vectors --name spacy.word2vec.model 
-
-
-
 rasa init
 rasa x
 rasa shell
@@ -27,7 +19,5 @@ rasa interactive
 rasa run actions --port 5056
 
 
-
-brew cask install ngrok
 
 
