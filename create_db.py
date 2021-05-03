@@ -225,13 +225,28 @@ if __name__ == "__main__":
     conn = sqlite3.connect('developpers.db')
     c = conn.cursor()
 
-    create_table_query = """CREATE TABLE addresses (
-		first_name text,
-		last_name text,
-		address text,
-		city text,
-		state text,
-		zipcode integer
-		)"""
+    create_developpers_query = """
+        CREATE TABLE developpers (
+            first_name text,
+            last_name text,
+            techno text,
+            experience integer
+        )
+    """
 
     c.execute(create_table_query)
+    conn.commit()
+
+    create_technos_query = """
+        CREATE TABLE technos (
+            name text,
+            type text
+        )
+    """
+
+    c.execute(create_technos_query)
+    conn.commit()
+
+    conn.close()
+
+    
