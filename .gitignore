@@ -1,9 +1,8 @@
-data/*
-output/*
-app/__pycache__/*
-app/config/__pycache__/*
-app/domain/__pycache__/
+actions/__pycache__/*
 
+tests/*
 
+models/*
+!models/README.models
 
 
