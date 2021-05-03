@@ -73,5 +73,6 @@ actions:
 - action_ask_usn
 - validate_credentials_and_display_attendance
 - display_upcoming_holidays
+- action_show_developpers
 forms: {}
 e2e_actions: []

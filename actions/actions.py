@@ -6,6 +6,24 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 
+class ActionShowDeveloppers(Action):
+
+    def name(self) -> Text:
+        return "action_show_developpers"
+
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        
+        conn = sqlite3.connect('developpers.db')
+
+        dispatcher.utter_message(text='action_show_developpers')
+
+        return []
+
+
 class ValidateCredentialsAndDisplayMarks(Action):
 
     def name(self) -> Text:
