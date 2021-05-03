@@ -31,22 +31,7 @@ airflow will run at : http://localhost:8080
 docker exec -it airflowserver bash
 docker stop airflowserver
 
-curl -X "DELETE" http://127.0.0.1:8080/api/experimental/dags/test_dag
 
 
-AIRFLOW CONNECTIONS :
 
-    AWS :
-        Conn Id : aws_credentials
-        Conn Type : Amazon Web Services
-        Login : Access key ID from the IAM User credentials
-        Password : Secret access key from the IAM User credentials
 
-    REDSHIFT :
-        Conn Id : redshift
-        Conn Type : Postgres
-        Host : endpoint of your Redshift cluster, excluding the port at the end
-        Schema :  dev
-        Login : awsuser
-        Password :  password you created when launching your Redshift cluster.
-        Port : 5439
