@@ -16,7 +16,7 @@ rasa init
 rasa x
 rasa shell
 rasa interactive
-rasa run actions --port 5056
+rasa run actions -vv
 
 
 

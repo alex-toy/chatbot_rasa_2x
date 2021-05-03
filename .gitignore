@@ -1,9 +1,10 @@
 actions/__pycache__/*
 
 tests/*
+!tests/README.md
 
 models/*
-!models/README.models
+!models/README.md
 
 
 
@@ -15,4 +16,7 @@ StudentDetailsComplete.xlsx
 University.db
 rasa.db
 university.jpg
+events.db
+events.db-shm
+events.db-wal
 
