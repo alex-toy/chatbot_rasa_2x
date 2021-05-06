@@ -2,6 +2,18 @@ version: "2.0"
 
 nlu:
 
+- intent: user_wants_infos_about_technos
+  examples: |
+    - I would like to know about your technologies
+    - Please tell me about technologies
+    - I want to know about your technologies
+    - I want to know the kind of technologies you work on in your firm
+    - I want to know what you have in terms of technologies
+    - I would like to know what you have in terms of technologies
+    - I would like to know the kind of technologies you have
+    - Please display my the technologies working in your firm
+    - Can I know about your technologies please
+
 - intent: user_wants_infos_about_developpers
   examples: |
     - I would like to know about your developpers

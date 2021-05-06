@@ -6,6 +6,31 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 
+class ActionShowtechnos(Action):
+
+    def name(self) -> Text:
+        return "action_show_technos"
+
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        
+        conn = sqlite3.connect('developpers.db')
+        query = "select * from technos;"
+        df = pd.read_sql(query, conn)
+
+        str((tracker.latest_message)['text'])
+        dispatcher.utter_message(response="utter_list_technos")
+
+        for index, row in df.iterrows():
+            content = f"{row['name']} which is of type {row['type']}."
+            dispatcher.utter_message(text=content)
+
+        return []
+
+
 class ActionShowDeveloppers(Action):
 
     def name(self) -> Text:

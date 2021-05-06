@@ -2,6 +2,14 @@ version: "2.0"
 
 stories:
 
+- story: User wants to have infos about technologies
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_wants_infos_about_technos
+  - action: action_show_technos
+  - action: utter_open_generals
+
 - story: User wants to have infos about developpers
   steps:
   - intent: greet
