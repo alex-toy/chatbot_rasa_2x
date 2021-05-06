@@ -74,9 +74,10 @@ def populate_tables() :
     c = conn.cursor()
     
     developpers = [
-        ('alessio', 'rea', 'node.js', 0),
+        ('julie', 'garandet', 'node.js', 7),
         ('mathieux', 'bordet', 'react', 10),
-        ('julien', 'ducros', 'java', 5)
+        ('julien', 'ducros', 'java', 5),
+        ('valentine', 'penicaud', 'react native', 5)
     ]
     insert_developpers_qry = """
         INSERT INTO developpers VALUES (?, ?, ?, ?)
