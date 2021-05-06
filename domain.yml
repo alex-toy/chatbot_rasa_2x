@@ -57,5 +57,6 @@ actions:
 - action_show_developpers
 - action_show_technos
 - action_confirm_show_one_techno
+- action_show_one_techno
 forms: {}
 e2e_actions: []

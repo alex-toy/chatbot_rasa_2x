@@ -8,6 +8,31 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 
 
+class ActionShowOneTechno(FormAction):
+    
+    def name(self) -> Text:
+        return "action_show_one_techno"
+
+    @staticmethod
+    def required_slots(tracker: "Tracker") -> List[Text]:
+        return ["techno_type"]
+
+
+    def submit(self,
+               dispatcher: "CollectingDispatcher",
+               tracker: "Tracker",
+               domain: "DomainDict",
+        ) -> List[Dict]:
+        
+        techno_type = tracker.get_slot('techno_type')
+        print(techno_type)
+
+        message_to_user = f"Voici la liste des developpeurs qui travaillent sur {techno_type}."
+
+        dispatcher.utter_message(text=message_to_user)
+        return []
+
+
 class ActionConfirmShowOneTechno(FormAction):
     
     def name(self) -> Text:

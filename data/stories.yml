@@ -9,7 +9,7 @@ stories:
   - intent: user_wants_infos_about_one_techno
   - action: action_confirm_show_one_techno
   - intent: confirm
-  - action: utter_open_generals
+  - action: action_show_one_techno
 
 - story: User wants to have infos about technologies
   steps:
