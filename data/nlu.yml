@@ -2,20 +2,35 @@ version: "2.0"
 
 nlu:
 
+- intent: user_chooses_techno
+  examples: |
+    - I would like to make a [node.js](techno_type) application
+    - I'm interested in a [node.js](techno_type) application
+    - I think a [node.js](techno_type) application would be good
+    - I would like to make a [java](techno_type) application
+    - I'm interested in a [java](techno_type) application
+    - I think a [java](techno_type) application would be good
+    - I would like to make a [swift](techno_type) application
+    - I'm interested in a [swift](techno_type) application
+    - I think a [swift](techno_type) application would be good
+    - I would like to make a [react native](techno_type) application
+    - I'm interested in a [react native](techno_type) application
+    - I think a [react native](techno_type) application would be good
+
 - intent: user_wants_web_site
   examples: |
-    - I would like to make a [web site](application_type)
-    - I would like you to make a [web site](application_type) for me
-    - Please make me a [web site](application_type) 
-    - Is it possible for you to make a [web site](application_type) for me? 
-    - can you make a [web site](application_type) for me? 
-    - could you make a [web site](application_type) for me? 
-    - I would like to make a [mobile application](application_type)
-    - I would like you to make a [mobile application](application_type) for me
-    - Please make me a [mobile application](application_type) 
-    - Is it possible for you to make a [mobile application](application_type) for me? 
-    - can you make a [mobile application](application_type) for me? 
-    - could you make a [mobile application](application_type) for me? 
+    - I would like to make a [web](application_type) site
+    - I would like you to make a [web](application_type) site for me
+    - Please make me a [web](application_type) site
+    - Is it possible for you to make a [web](application_type) site for me? 
+    - can you make a [web](application_type) site for me? 
+    - could you make a [web](application_type) site for me? 
+    - I would like to make a [mobile](application_type) application
+    - I would like you to make a [mobile](application_type) application for me
+    - Please make me a [mobile](application_type) application
+    - Is it possible for you to make a [mobile](application_type) application for me? 
+    - can you make a [mobile](application_type) application for me? 
+    - could you make a [mobile](application_type) application for me? 
 
 - intent: user_wants_infos_about_one_techno
   examples: |

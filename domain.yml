@@ -27,6 +27,8 @@ intents:
     use_entities: true
 - user_wants_web_site:
     use_entities: true
+- user_chooses_techno:
+    use_entities: true
 entities:
 - techno_type
 - application_type
@@ -62,6 +64,8 @@ responses:
   - text: 'Voici la liste de nos super développeurs :'
   utter_list_technos:
   - text: 'Voici la liste des technologies que nous avons dans notre stack :'
+  utter_open_app:
+  - text: 'Y a-t-il autre chose que nous puissions faire pour vous ?'
   utter_open_generals:
   - buttons:
     - payload: I would like to know about developpers
@@ -76,5 +80,9 @@ actions:
 - action_show_technos
 - action_show_one_techno
 - action_confirm_web_sites
+- action_finalize_app_details
 forms: {}
 e2e_actions: []
+
+
+

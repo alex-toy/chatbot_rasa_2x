@@ -6,6 +6,9 @@ stories:
   steps:
   - intent: user_wants_web_site
   - action: action_confirm_web_sites
+  - intent: user_chooses_techno
+  - action: action_finalize_app_details
+  - action: utter_open_app
 
 - story: User wants to have infos about a particular technology
   steps:

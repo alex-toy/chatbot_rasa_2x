@@ -7,6 +7,33 @@ from rasa_sdk.executor import CollectingDispatcher
 
 
 
+class ActionFinalizeAppDetail(Action):
+
+    def name(self) -> Text:
+        return "action_finalize_app_details"
+
+    @staticmethod
+    def required_slots(tracker: "Tracker") -> List[Text]:
+        return ["application_type"]
+
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+
+        application_type = tracker.get_slot('application_type')
+        techno_type = tracker.get_slot('techno_type')
+
+        message_to_user = f"Vous souhaitez donc une application {application_type} réalisée en {techno_type}. "
+        
+        message_to_user += f"Nous serons plus que ravis de réaliser ce site web pour vous!!"
+        dispatcher.utter_message(text=message_to_user)
+
+        return []
+
+
+
 class ActionConfirmWebSite(Action):
     
     def name(self) -> Text:
@@ -24,9 +51,9 @@ class ActionConfirmWebSite(Action):
     ) -> List[Dict[Text, Any]]:
         
         application_type = tracker.get_slot('application_type')
-        print(application_type)
-
-        message_to_user = f"Ok super. Vous souhaitez réaliser un {application_type}. "
+        search = 'mobile'
+        message_to_user = f"Ok super. "
+        message_to_user += f"Vous souhaitez réaliser une application {application_type}. "
         message_to_user += f"Voici les technos permettant de le faire :"
         dispatcher.utter_message(text=message_to_user)
 
@@ -41,7 +68,7 @@ class ActionConfirmWebSite(Action):
             content = f"{row['name']}"
             dispatcher.utter_message(text=content)
 
-        dispatcher.utter_message(text="Sur laquelle de ces technos souhaitez-vous voir votre site réaliseé?")
+        dispatcher.utter_message(text="Sur laquelle de ces technos souhaitez-vous voir votre site réalisée?")
 
         return []
 
