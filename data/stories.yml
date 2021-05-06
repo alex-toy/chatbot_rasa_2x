@@ -4,8 +4,6 @@ stories:
 
 - story: User wants to have infos about a particular technology
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: user_wants_infos_about_one_techno
   - action: action_confirm_show_one_techno
   - intent: confirm
@@ -14,8 +12,6 @@ stories:
 
 - story: User wants to have infos about technologies
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: user_wants_infos_about_technos
   - action: action_show_technos
   - action: utter_open_generals
@@ -37,7 +33,10 @@ stories:
   - action: utter_open_generals
 
 
-
+- story: User greets
+  steps:
+  - intent: greet
+  - action: utter_greet
 
 
 

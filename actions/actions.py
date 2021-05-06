@@ -5,10 +5,9 @@ import pandas as pd
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from rasa_sdk.forms import FormAction
 
 
-class ActionShowOneTechno(FormAction):
+class ActionShowOneTechno(Action):
     
     def name(self) -> Text:
         return "action_show_one_techno"
@@ -18,14 +17,13 @@ class ActionShowOneTechno(FormAction):
         return ["techno_type"]
 
 
-    def submit(self,
-               dispatcher: "CollectingDispatcher",
-               tracker: "Tracker",
-               domain: "DomainDict",
-        ) -> List[Dict]:
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
         
         techno_type = tracker.get_slot('techno_type')
-        print(techno_type)
 
         message_to_user = f"Voici la liste des developpeurs qui travaillent sur {techno_type}."
         dispatcher.utter_message(text=message_to_user)
@@ -41,7 +39,7 @@ class ActionShowOneTechno(FormAction):
         return []
 
 
-class ActionConfirmShowOneTechno(FormAction):
+class ActionConfirmShowOneTechno(Action):
     
     def name(self) -> Text:
         return "action_confirm_show_one_techno"
@@ -51,11 +49,11 @@ class ActionConfirmShowOneTechno(FormAction):
         return ["techno_type"]
 
 
-    def submit(self,
-               dispatcher: "CollectingDispatcher",
-               tracker: "Tracker",
-               domain: "DomainDict",
-        ) -> List[Dict]:
+    def run(self, 
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
         
         techno_type = tracker.get_slot('techno_type')
         print(techno_type)
@@ -85,7 +83,7 @@ class ActionShowtechnos(Action):
         dispatcher.utter_message(response="utter_list_technos")
 
         for index, row in df.iterrows():
-            content = f"{row['name']} which is of type {row['type']}."
+            content = f"{row['name']} qui est une technologie {row['type']}."
             dispatcher.utter_message(text=content)
 
         return []

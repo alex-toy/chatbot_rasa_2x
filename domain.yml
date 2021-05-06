@@ -28,6 +28,11 @@ intents:
 entities:
 - techno_type
 slots:
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
   techno_type:
     type: rasa.shared.core.slots.UnfeaturizedSlot
     initial_value: null
@@ -50,7 +55,12 @@ responses:
   utter_list_technos:
   - text: 'Voici la liste des technologies que nous avons dans notre stack :'
   utter_open_generals:
-  - text: Que voudriez-vous savoir de plus sur nous?
+  - buttons:
+    - payload: I would like to know about developpers
+      title: Développeurs
+    - payload: I would like to know about technologies
+      title: Technologies
+    text: Que voudriez-vous savoir de plus sur nous?
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
 actions:
