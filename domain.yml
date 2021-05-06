@@ -66,6 +66,8 @@ responses:
   - text: We can do web as well as mobile applications.
   utter_list_developpers:
   - text: 'Here are our great and brilliant developpers :'
+  utter_open_generals:
+  - text: What else would you like to know about us?
 actions:
 - validate_credentials_and_display_marks
 - action_admission_info

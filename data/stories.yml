@@ -8,7 +8,7 @@ stories:
   - action: utter_greet
   - intent: user_wants_infos_about_developpers
   - action: action_show_developpers
-  - action: utter_goodbye
+  - action: utter_open_generals
 
 - story: User wants to have infos about websites
   steps:
@@ -16,7 +16,7 @@ stories:
   - action: utter_greet
   - intent: user_wants_infos_about_web_site
   - action: utter_menu_web_site
-  - action: utter_goodbye
+  - action: utter_open_generals
 
 - story: User wants to check marks
   steps:
