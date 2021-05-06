@@ -77,7 +77,8 @@ def populate_tables() :
         ('julie', 'garandet', 'node.js', 7),
         ('mathieux', 'bordet', 'react', 10),
         ('julien', 'ducros', 'java', 5),
-        ('valentine', 'penicaud', 'react native', 5)
+        ('valentine', 'penicaud', 'react native', 5),
+        ('marc', 'sanders', 'node.js', 15)
     ]
     insert_developpers_qry = """
         INSERT INTO developpers VALUES (?, ?, ?, ?)

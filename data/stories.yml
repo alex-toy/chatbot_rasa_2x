@@ -10,6 +10,7 @@ stories:
   - action: action_confirm_show_one_techno
   - intent: confirm
   - action: action_show_one_techno
+  - action: utter_open_generals
 
 - story: User wants to have infos about technologies
   steps:
