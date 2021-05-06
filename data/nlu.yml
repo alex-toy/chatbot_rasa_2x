@@ -2,6 +2,17 @@ version: "2.0"
 
 nlu:
 
+- intent: user_wants_infos_about_one_techno
+  examples: |
+    - I would like to know about [node.js](techno_type)
+    - I would like to know about [java](techno_type)
+    - I would like to know about [swift](techno_type)
+    - I would like to know about [react native](techno_type)
+    - Please tell me about [node.js](techno_type)
+    - Please tell me about [java](techno_type)
+    - Please tell me about [swift](techno_type)
+    - Please tell me about [react native](techno_type)
+
 - intent: user_wants_infos_about_technos
   examples: |
     - I would like to know about your technologies
@@ -37,6 +48,16 @@ nlu:
     - I would like to know the kind of web sites you can make for me
     - Please display my the kind of web sites you're able to make
     - Can I know about web sites please
+
+- intent: confirm
+  examples: |
+    - Yes do it
+    - yes please,
+    - yes pls
+    - please
+    - ok
+    - ok for me
+    - please do it fast
 
 - intent: greet
   examples: |

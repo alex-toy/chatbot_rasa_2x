@@ -37,8 +37,16 @@ intents:
     use_entities: true
 - user_wants_infos_about_technos:
     use_entities: true
-entities: []
-slots: {}
+- user_wants_infos_about_one_techno:
+    use_entities: true
+entities:
+- techno_type
+slots:
+  techno_type:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
 responses:
   utter_greet:
   - buttons:
@@ -81,5 +89,6 @@ actions:
 - display_upcoming_holidays
 - action_show_developpers
 - action_show_technos
+- action_confirm_show_one_techno
 forms: {}
 e2e_actions: []

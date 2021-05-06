@@ -5,6 +5,33 @@ import pandas as pd
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+from rasa_sdk.forms import FormAction
+
+
+class ActionConfirmShowOneTechno(FormAction):
+    
+    def name(self) -> Text:
+        return "action_confirm_show_one_techno"
+
+    @staticmethod
+    def required_slots(tracker: "Tracker") -> List[Text]:
+        return ["techno_type"]
+
+
+    def submit(self,
+               dispatcher: "CollectingDispatcher",
+               tracker: "Tracker",
+               domain: "DomainDict",
+        ) -> List[Dict]:
+        
+        techno_type = tracker.get_slot('techno_type')
+        print(techno_type)
+
+        message_to_user = f"Ok Great. Your want to know about {techno_type}. Can you please confirm ?"
+
+        dispatcher.utter_message(text=message_to_user)
+        return []
+
 
 class ActionShowtechnos(Action):
 

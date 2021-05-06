@@ -2,6 +2,15 @@ version: "2.0"
 
 stories:
 
+- story: User wants to have infos about a particular technology
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: user_wants_infos_about_one_techno
+  - action: action_confirm_show_one_techno
+  - intent: confirm
+  - action: utter_open_generals
+
 - story: User wants to have infos about technologies
   steps:
   - intent: greet
