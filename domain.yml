@@ -25,8 +25,11 @@ intents:
     use_entities: true
 - bot_challenge:
     use_entities: true
+- user_wants_web_site:
+    use_entities: true
 entities:
 - techno_type
+- application_type
 slots:
   requested_slot:
     type: rasa.shared.core.slots.UnfeaturizedSlot
@@ -34,6 +37,11 @@ slots:
     auto_fill: true
     influence_conversation: false
   techno_type:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  application_type:
     type: rasa.shared.core.slots.UnfeaturizedSlot
     initial_value: null
     auto_fill: true
@@ -49,7 +57,7 @@ responses:
   utter_goodbye:
   - text: Have a good day!
   utter_menu_web_site:
-  - text: Nous réalisons des sites web aussi bien que des applications mobiles.
+  - text: Nous réalisons des sites web aussi bien que des applications mobiles. De quoi avez-vous besoin?
   utter_list_developpers:
   - text: 'Voici la liste de nos super développeurs :'
   utter_list_technos:
@@ -66,7 +74,7 @@ responses:
 actions:
 - action_show_developpers
 - action_show_technos
-- action_confirm_show_one_techno
 - action_show_one_techno
+- action_confirm_web_sites
 forms: {}
 e2e_actions: []

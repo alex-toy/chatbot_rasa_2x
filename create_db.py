@@ -10,13 +10,14 @@ def create_tables() :
         CREATE TABLE IF NOT EXISTS developpers (
             first_name text,
             last_name text,
-            techno text,
+            id_techno integer,
             experience integer
         )
     """
 
     create_technos_query = """
         CREATE TABLE IF NOT EXISTS technos (
+            id_techno integer,
             name text,
             type text
         )
@@ -31,34 +32,13 @@ def create_tables() :
     print('end create_tables')
 
 
-    # c.execute("""UPDATE addresses SET
-	# 	first_name = :first,
-	# 	last_name = :last,
-	# 	address = :address,
-	# 	city = :city,
-	# 	state = :state,
-	# 	zipcode = :zipcode 
-
-	# 	WHERE oid = :oid""",
-	# 	{
-	# 	'first': f_name_editor.get(),
-	# 	'last': l_name_editor.get(),
-	# 	'address': address_editor.get(),
-	# 	'city': city_editor.get(),
-	# 	'state': state_editor.get(),
-	# 	'zipcode': zipcode_editor.get(),
-	# 	'oid': record_id
-	# 	})
-
-    #c.execute("DELETE from addresses WHERE oid = " + delete_box.get())
-
 def delete_all() :
     
     conn = sqlite3.connect('developpers.db')
     c = conn.cursor()
 
-    c.execute("DELETE from developpers;")
-    c.execute("DELETE from technos;")
+    c.execute("DROP TABLE developpers;")
+    c.execute("DROP TABLE technos;")
 
     conn.commit()
     conn.close()
@@ -74,31 +54,25 @@ def populate_tables() :
     c = conn.cursor()
     
     developpers = [
-        ('julie', 'garandet', 'node.js', 7),
+        ('julie', 'garandet', 1, 7),
         ('mathieux', 'bordet', 'react', 10),
-        ('julien', 'ducros', 'java', 5),
-        ('valentine', 'penicaud', 'react native', 5),
-        ('marc', 'sanders', 'node.js', 15)
+        ('julien', 'ducros', 3, 5),
+        ('valentine', 'penicaud', 2, 5),
+        ('marc', 'sanders', 1, 15)
     ]
     insert_developpers_qry = """
         INSERT INTO developpers VALUES (?, ?, ?, ?)
     """
     c.executemany(insert_developpers_qry, developpers)
 
-    create_technos_query = """
-        CREATE TABLE IF NOT EXISTS technos (
-            name text,
-            type text
-        )
-    """
     technos = [
-        ('node.js', 'web'),
-        ('react native', 'mobile'),
-        ('java', 'web'),
-        ('swift', 'mobile')
+        (1, 'node.js', 'web'),
+        (2, 'react native', 'mobile'),
+        (3, 'java', 'web'),
+        (4, 'swift', 'mobile')
     ]
     insert_technos_qry = """
-        INSERT INTO technos VALUES (?, ?)
+        INSERT INTO technos VALUES (?, ?, ?)
     """    
     c.executemany(insert_technos_qry, technos)
 

@@ -2,6 +2,21 @@ version: "2.0"
 
 nlu:
 
+- intent: user_wants_web_site
+  examples: |
+    - I would like to make a [web site](application_type)
+    - I would like you to make a [web site](application_type) for me
+    - Please make me a [web site](application_type) 
+    - Is it possible for you to make a [web site](application_type) for me? 
+    - can you make a [web site](application_type) for me? 
+    - could you make a [web site](application_type) for me? 
+    - I would like to make a [mobile application](application_type)
+    - I would like you to make a [mobile application](application_type) for me
+    - Please make me a [mobile application](application_type) 
+    - Is it possible for you to make a [mobile application](application_type) for me? 
+    - can you make a [mobile application](application_type) for me? 
+    - could you make a [mobile application](application_type) for me? 
+
 - intent: user_wants_infos_about_one_techno
   examples: |
     - I would like to know about [node.js](techno_type)

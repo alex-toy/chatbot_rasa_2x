@@ -2,11 +2,14 @@ version: "2.0"
 
 stories:
 
+- story: User wants to make a web site
+  steps:
+  - intent: user_wants_web_site
+  - action: action_confirm_web_sites
+
 - story: User wants to have infos about a particular technology
   steps:
   - intent: user_wants_infos_about_one_techno
-  - action: action_confirm_show_one_techno
-  - intent: confirm
   - action: action_show_one_techno
   - action: utter_open_generals
 
@@ -37,8 +40,5 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-
-
-
 
 
