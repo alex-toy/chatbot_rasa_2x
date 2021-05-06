@@ -27,7 +27,7 @@ class ActionConfirmShowOneTechno(FormAction):
         techno_type = tracker.get_slot('techno_type')
         print(techno_type)
 
-        message_to_user = f"Ok Great. Your want to know about {techno_type}. Can you please confirm ?"
+        message_to_user = f"Ok super. Vous souhaitez en savoir plus sur {techno_type}. Pouvez-vous confirmer svp ?"
 
         dispatcher.utter_message(text=message_to_user)
         return []
@@ -77,7 +77,7 @@ class ActionShowDeveloppers(Action):
         dispatcher.utter_message(response="utter_list_developpers")
 
         for index, row in df.iterrows():
-            content = f"{row['first_name']} {row['last_name']} works on {row['techno']} and has {row['experience']} years of experience."
+            content = f"{row['first_name']} {row['last_name']} travaille sur {row['techno']} et a {row['experience']} années d'experience."
             dispatcher.utter_message(text=content)
 
         return []

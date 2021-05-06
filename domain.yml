@@ -37,20 +37,20 @@ responses:
   utter_greet:
   - buttons:
     - payload: I would like to know about developpers
-      title: Developpers
+      title: Développeurs
     - payload: I would like to know about technologies
       title: Technologies
-    text: Hey! Welcome in our site 33 degres. Below are few of the suggestions
+    text: Hey! Bienvenue sur notre site 33 degrés. Ci-dessous quelques suggestions
   utter_goodbye:
   - text: Have a good day!
   utter_menu_web_site:
-  - text: We can do web as well as mobile applications.
+  - text: Nous réalisons des sites web aussi bien que des applications mobiles.
   utter_list_developpers:
-  - text: 'Here are our great and brilliant developpers :'
+  - text: 'Voici la liste de nos super développeurs :'
   utter_list_technos:
-  - text: 'Here are the wonderful technologies we have in our stack :'
+  - text: 'Voici la liste des technologies que nous avons dans notre stack :'
   utter_open_generals:
-  - text: What else would you like to know about us?
+  - text: Que voudriez-vous savoir de plus sur nous?
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
 actions:
