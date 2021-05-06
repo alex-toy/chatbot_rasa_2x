@@ -13,31 +13,17 @@ intents:
     use_entities: true
 - deny:
     use_entities: true
-- mood_great:
-    use_entities: true
-- mood_unhappy:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
-- user_submitted_password:
-    use_entities: true
-- user_wants_to_check_attendance:
-    use_entities: true
-- user_submitted_usn:
-    use_entities: true
-- user_wants_to_check_upcoming_holidays:
-    use_entities: true
-- user_wants_to_check_marks:
-    use_entities: true
-- user_wants_to_check_admission_status:
-    use_entities: true
-- user_wants_infos_about_web_site:
-    use_entities: true
 - user_wants_infos_about_developpers:
     use_entities: true
 - user_wants_infos_about_technos:
     use_entities: true
 - user_wants_infos_about_one_techno:
+    use_entities: true
+- user_wants_infos_about_web_site:
+    use_entities: true
+- confirm:
+    use_entities: true
+- bot_challenge:
     use_entities: true
 entities:
 - techno_type
@@ -55,23 +41,8 @@ responses:
     - payload: I would like to know about technologies
       title: Technologies
     text: Hey! Welcome in our site 33 degres. Below are few of the suggestions
-  utter_cheer_up:
-  - image: https://i.imgur.com/nGF1K8f.jpg
-    text: 'Here is something to cheer you up:'
-  utter_did_that_help:
-  - text: Did that help you?
-  utter_ask_usn:
-  - text: Please enter your University seat number
-  utter_ask_password:
-  - text: Please enter your password
-  utter_admission_info:
-  - text: The admission for 2021 will happen in September
-  utter_happy:
-  - text: Great, carry on!
   utter_goodbye:
   - text: Have a good day!
-  utter_iamabot:
-  - text: I am a bot, powered by Rasa.
   utter_menu_web_site:
   - text: We can do web as well as mobile applications.
   utter_list_developpers:
@@ -80,13 +51,9 @@ responses:
   - text: 'Here are the wonderful technologies we have in our stack :'
   utter_open_generals:
   - text: What else would you like to know about us?
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
 actions:
-- validate_credentials_and_display_marks
-- action_admission_info
-- action_ask_password
-- action_ask_usn
-- validate_credentials_and_display_attendance
-- display_upcoming_holidays
 - action_show_developpers
 - action_show_technos
 - action_confirm_show_one_techno
