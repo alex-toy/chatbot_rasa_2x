@@ -28,8 +28,16 @@ class ActionShowOneTechno(FormAction):
         print(techno_type)
 
         message_to_user = f"Voici la liste des developpeurs qui travaillent sur {techno_type}."
-
         dispatcher.utter_message(text=message_to_user)
+
+        conn = sqlite3.connect('developpers.db')
+        query = f"select * from developpers where techno= '{techno_type}';"
+        df = pd.read_sql(query, conn)
+
+        for index, row in df.iterrows():
+            content = f"{row['first_name']} {row['last_name']} a {row['experience']} années d'experience."
+            dispatcher.utter_message(text=content)
+        
         return []
 
 
