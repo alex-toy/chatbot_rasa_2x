@@ -7,16 +7,8 @@ models/*
 !models/README.md
 
 
-
-
-2021_calendar.xlsx
-Chatroom.css
-Chatroom.js
-StudentDetailsComplete.xlsx
-University.db
 rasa.db
-university.jpg
 events.db
 events.db-shm
 events.db-wal
-home.html
+
