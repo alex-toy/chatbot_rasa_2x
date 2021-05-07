@@ -17,6 +17,7 @@ rasa x
 rasa shell
 rasa interactive
 rasa run actions -vv
+rasa run --enable-api
 
 
 

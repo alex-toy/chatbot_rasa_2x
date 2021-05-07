@@ -42,6 +42,7 @@ nlu:
     - Please tell me about [java](techno_type)
     - Please tell me about [swift](techno_type)
     - Please tell me about [react native](techno_type)
+    - is it possible for you to explain a technology like [java](techno_type) to me
 
 - intent: user_wants_infos_about_technos
   examples: |
