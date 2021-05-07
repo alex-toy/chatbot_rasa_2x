@@ -15,11 +15,10 @@ def rasa():
         id = request.get_json()['id']
         msg = request.get_json()['msg']
 
-        url = 'http://localhost:5005/webhooks/rest/webhook'
-
         data = {'sender':id, 'message':msg}
 
-        result = requests.post(url=url, json = data)
+        rasa_server_url = 'http://localhost:5005/webhooks/rest/webhook'
+        result = requests.post(url=rasa_server_url, json = data)
 
         return jsonify(result.json())
 
