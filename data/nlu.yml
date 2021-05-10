@@ -2,6 +2,33 @@ version: "2.0"
 
 nlu:
 
+- regex: age
+  examples: |
+    - \d{1,2}
+
+- regex: number
+  examples: |
+    - \d{4}
+
+- intent: tell_age
+  examples: |
+    - what is your age?
+    - tell me your age
+    - how old are you
+
+- intent: my_age
+  examples: |
+    - my age is [21]{"entity":"age"}
+    - I am [34]{"entity":"age"} years old
+    - I am [54]{"entity":"age"} 
+
+- intent: mobile_number
+  examples: |
+    - my number is [8209]{"entity":"number"}
+    - [8209]{"entity":"number"}
+    - [8209]{"entity":"number"} is my number
+    - my nobile number is [8209]{"entity":"number"}
+
 - intent: user_chooses_techno
   examples: |
     - I would like to make a [node.js](techno_type) application
@@ -139,7 +166,12 @@ nlu:
     - no way
     - not really
 
-
+- intent: play_video
+  examples: |
+    - play the mentioned video
+    - open the url
+    - open the link in browser
+    - show me the video that i asked for
 
 
 
