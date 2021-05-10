@@ -5,9 +5,15 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet:
+- buy_phone_laptop:
+    use_entities: true
+- latest_news_phones_laptops:
+    use_entities: true
+- give_information:
     use_entities: true
 - goodbye:
+    use_entities: true
+- greet:
     use_entities: true
 - affirm:
     use_entities: true
@@ -29,34 +35,15 @@ intents:
     use_entities: true
 - user_chooses_techno:
     use_entities: true
-- tell_age:
-    use_entities: true
-- my_age:
-    use_entities:
-    - age
-- mobile_number:
-    use_entities:
-    - number
-- play_video:
-    use_entities: true
-- tell_age:
-    use_entities: true
 entities:
 - techno_type
 - application_type
-- age
-- number
+- category
+- RAM
+- battery
+- camera
+- ram
 slots:
-  age:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
-    influence_conversation: true
-  number:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
-    influence_conversation: true
   requested_slot:
     type: rasa.shared.core.slots.UnfeaturizedSlot
     initial_value: null
@@ -99,37 +86,26 @@ responses:
     text: Que voudriez-vous savoir de plus sur nous?
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
-  utter_name:
-  - text: My name is Innovate Yourself.
-  utter_my_name:
-  - text: My name is this.
-  utter_ask_age:
-  - text: What is your age?
-  utter_ask_number:
-  - text: What is your mobile number?
-  utter_thanks:
-  - text: Thanks for providing the values.
-  utter_details_thanks:
-  - text: |-
-      Thanks for providing the given details 
-      age: {age},
-      Mobile Number: {Mobile_number}
-  utter_mobile_number:
-  - text: this is your mobile number
+  utter_how_can_I_help:
+  - text: Welcome. I'm your shopping bot. I can help you with ffinding a phone or laptop and providing latest news for them!
+  utter_ask_ram:
+  - text: How much GB RAM are you looking for?
+  utter_ask_camera:
+  - text: What megapixel camera are you looking for?
+  utter_ask_battery:
+  - text: How much battery capacity are you looking for in the mobile?
 actions:
+- utter_how_can_I_help
+- utter_ask_ram
+- utter_ask_camera
+- utter_ask_battery
+- utter_goodbye
 - action_show_developpers
 - action_show_technos
 - action_show_one_techno
 - action_confirm_web_sites
 - action_finalize_app_details
-- action_video
-- action_submit
-forms:
-  user_details_form:
-    name:
-    - entity: name
-      type: from_entity
-    number:
-    - entity: number
-      type: from_entity
+- action_search
+- action_show_latest_news
+forms: {}
 e2e_actions: []
